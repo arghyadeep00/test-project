@@ -1,0 +1,31 @@
+services:
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+
+    container_name: my-backend
+
+    expose:
+      - "3000"
+
+    env_file:
+      - .env
+
+    restart: unless-stopped
+
+  nginx:
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile
+
+    container_name: my-nginx
+
+    ports:
+      - "80:80"
+
+    depends_on:
+      - backend
+
+    restart: unless-stopped
