@@ -6,7 +6,7 @@ app.use(express.json());
 
 app.get("/", (req, res) => {
   res.json({
-    message: "Node.js API is running",
+    message: "Node.js API is running CI/CD Implementend",
   });
 });
 
